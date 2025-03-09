@@ -1,0 +1,278 @@
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background: red;
+}
+::-webkit-scrollbar-thumb {
+  background: red;
+}
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #190c3d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6c3ee9;
+  border-radius: 4px;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6c3ee9 #190c3d;
+}
+.mesh {
+  width: 100%;
+  height: 100dvh;
+
+  background: radial-gradient(
+    circle at center top,
+    #000000 0% 45%,
+    #190c3d,
+    #1e0b50
+  );
+  z-index: 1;
+  overflow-y: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+
+  padding-bottom: 50px;
+
+  h1 {
+    color: white;
+    font-weight: 500;
+    max-width: 22ch;
+    text-align: center;
+    font-size: 3rem;
+    span {
+      background: linear-gradient(to right, #ffffff, #868686);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .wow_effect {
+      font-weight: 1000;
+      background: white;
+      background-clip: text;
+    }
+  }
+  .tweak {
+    display: block;
+    color: white !important;
+  }
+  p {
+    max-width: 60ch;
+    text-align: center;
+    font-size: 1.1rem;
+    color: gray;
+  }
+  .animations {
+    width: min(1000px, 95%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 100px;
+    div {
+      background-color: #190c3d;
+      padding: 20px 10px;
+      height: 300px;
+
+      box-shadow: inset 0px 0px 10px #310e88;
+      border-radius: 10px;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 20px;
+
+      position: relative;
+      .copy {
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        padding: 5px;
+        background-color: #6c3ee9;
+      }
+
+      div {
+        all: unset;
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(#6c3ee9, #310e88);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: 10px;
+        padding: 10px;
+        position: relative;
+        &:hover {
+          transform: translateY(-10px);
+        }
+      }
+
+      h2 {
+        color: #7145ec;
+        font-weight: 400;
+        padding: 0px 10px;
+      }
+      p {
+        color: white;
+      }
+
+      span {
+        color: gray;
+        overflow: hidden;
+        border-right: 0.15em solid #7145ec;
+        white-space: nowrap;
+        margin: 0 auto;
+        animation: typing 3.5s steps(40, end), blink_caret 1s step-end infinite;
+      }
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+          max-width: max-content;
+        }
+      }
+
+      @keyframes blink_caret {
+        from,
+        to {
+          border-color: transparent;
+        }
+        50% {
+          border-color: #7145ec;
+        }
+      }
+
+      .hover {
+        all: unset;
+        width: 120px;
+        height: 120px;
+        background: linear-gradient(#6c3ee9, #310e88);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+        &:hover {
+          animation: shake_animation 1.5s infinite;
+        }
+      }
+      @keyframes shake_animation {
+        0% {
+          transform: rotate(0deg);
+        }
+        80% {
+          transform: rotate(0deg);
+        }
+        85% {
+          transform: rotate(5deg);
+        }
+        95% {
+          transform: rotate(-5deg);
+        }
+        100% {
+          transform: rotate(0deg);
+        }
+      }
+      button {
+        width: 140px;
+        padding: 10px 5px;
+        background-color: transparent;
+        color: white;
+        border: 3px solid #6c3ee9;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+          background-color: #7145ec;
+          border-radius: 50px;
+        }
+      }
+    }
+  }
+  .made_in {
+    --angle: 0deg;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-radius: 50px;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    margin-top: 220px;
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      translate: -50% -50%;
+      z-index: -1;
+      padding: 3px;
+      border-radius: 50px;
+      background-image: conic-gradient(
+        from var(--angle),
+        transparent 65%,
+        #7145ec
+      );
+      animation: made_in_animation 2s linear infinite;
+    }
+    @keyframes made_in_animation {
+      from {
+        --angle: 0deg;
+      }
+      to {
+        --angle: 360deg;
+      }
+    }
+  }
+}
+@media (max-width: 1000px) {
+  .animations {
+    padding-right: 10px;
+    grid-template-columns: 50% 50% !important;
+  }
+}
+@media (max-width: 600px) {
+  .mesh {
+    padding: 20px;
+  }
+  .made_in {
+    margin-top: 100px !important;
+  }
+  .animations {
+    padding-right: 10px;
+    grid-template-columns: 100% !important;
+  }
+}
+@media (max-width: 450px) {
+  .mesh {
+    gap: 20px;
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
