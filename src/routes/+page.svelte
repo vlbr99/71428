@@ -2,8 +2,6 @@
   import "../routes/index.scss";
   import { copy } from "svelte-copy";
 
-  let copy_btn = document.querySelector(".copy");
-
   let change_text = (e) => {
     e.target.textContent = "Copied";
     setTimeout(() => {
